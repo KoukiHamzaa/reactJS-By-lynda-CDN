@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Project</title>
+    <script src="reactFiles/react.development.js"></script>
+    <script src="reactFiles/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.9.3/babel.min.js"></script>
+    <style>
+      .heding {
+        color: rgb(110, 92, 95);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      //<script type="text/javascript" -- >
+      //=============================
+      // #First_Example
+      //=============================
+      // ReactDOM.render(
+      //   React.createElement("h1", { style: { color: "red" } }, "Hello World"),
+      //   document.getElementById("root")
+      // );
+
+      //=============================
+      // #Second_Example
+      //=============================
+      // ReactDOM.render(
+      //   React.createElement(
+      //     "div",
+      //     null,
+      //     React.createElement("h1", null, "Hello :D")
+      //   ),
+      //   document.getElementById("root")
+      // );
+      //  </scri-pt>
+
+      //=============================
+      // #third_Example
+      //=============================
+      // let city = "Tunisia";
+      // ReactDOM.render(
+      //   <h1 className="heding">Hello {city}</h1>,
+      //   document.getElementById("root"));
+
+      //   //=============================
+      //  // #fourth_Example
+      //   //=============================
+      // const Hello = (props) => {
+      //   // const Hello = ({library , message}) => { -> this is  onther way , is the same like props and maybe much better
+      //   // console.log(props);
+      //   return (
+      //     <div className="heding">
+      //       <h1>Welcome to {props.library}</h1>
+      //       <p>{props.message}</p>
+      //     </div>
+      //   );
+      // };
+
+      // ReactDOM.render(<Hello  library="React" message="Enjoy!"/>, document.getElementById("root"));
+
+      // //=============================
+      // // #fifth_Example
+      // //=============================
+      // const Lake = ({ name }) => <h1>{name}</h1>;
+
+      // class App extends React.Component {
+      //   state = {
+      //     loggedIn: true
+      //   };
+
+      //   logIn = () => this.setState({ loggedIn: true });
+      //   logOut = ()=> this.setState({ loggedIn: false });
+      //   render() {
+      //     return (
+      //       <div>
+      //         <button onClick={this.logIn}>Log In</button>
+      //         <button onClick={this.logOut}>Log Out</button>
+      //         <div>
+      //           The user is
+      //           {this.state.loggedIn ? " logged in" : " not logged in "} .
+      //         </div>
+      //         <Lake name="Tahoe Lake" />
+      //         <Lake name="Angora Lake" />
+      //         <Lake name="Shirley Lake" />
+      //         <Lake name="Cathedral Lake" />
+      //       </div>
+      //     );
+      //   }
+      // }
+
+      // ReactDOM.render(<App />, document.getElementById("root"));
+
+      // //=============================
+      // // #sixth_Example
+      // //=============================
+      // const Lake = ({ name }) => <h1>{name}</h1>;
+      // const SkiResort = ({ name }) => <h1>{name}</h1>;
+
+      // const App = ({ summer }) => (
+      //   <div>{summer ? <Lake name="Hamza" /> : <SkiResort name="Yacin" />}</div>
+      // );
+
+      // ReactDOM.render(<App summer={true} />, document.getElementById("root"));
+
+      //   //=============================
+      //   // #seventh_Example => list based on string elements
+      //   //=============================
+      //   const LakeList = ["Echo Lake","Maud Lake","Cascade Lake"];
+
+      //     const App = ({lakes}) => (
+      //       <ul>
+      //         {lakes.map((lake , i)=> <li key={i}> {lake}</li>)}
+      //       </ul>
+      //     )
+
+      //   ReactDOM.render(<App lakes={LakeList} />, document.getElementById("root"));
+
+      //=============================
+      // #eighth_Example
+      //=============================
+      const LakeList = [
+        { id: 1, name: "Hamza", country: "Tunisia" },
+        { id: 2, name: "MOUHEB", country: "Japan" },
+        { id: 3, name: "Kouki", country: "Usa" }
+      ];
+
+      const App = ({ lakes }) => (
+        <ul>
+          {lakes.map((lake, i) => (
+            <li key={i}>First Name is: {lake.name} , country: {lake.name} , </li>
+          ))}
+        </ul>
+      );
+
+      ReactDOM.render(
+        <App lakes={LakeList} />,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
