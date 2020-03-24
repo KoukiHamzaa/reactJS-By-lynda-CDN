@@ -36,10 +36,25 @@ class Library extends Component {
     this.state = {
       open: false,
       freeBookMark: false,
-      hiring: false
+      hiring: false,
+      data: [],
+      loading: false
     };
 
     this.toggleOpenClosed = this.toggleOpenClosed.bind(this);
+  }
+
+  componentDidMount() {
+    // console.log("the component is now mounted!")
+    const { data } = this.state;
+    this.setState({ loading: true });
+    fetch("http://hplussport.com/api/products/order/price/sort/asc/qty/1")
+      .then(data => data.json())
+      .then(data.setstate({ data, loading: false }));
+  }
+
+  componentDidUpdate() {
+    console.log("the component is now updated");
   }
 
   toggleOpenClosed() {
@@ -67,6 +82,21 @@ class Library extends Component {
           />
         ))}
         {this.state.hiring ? <Hiring /> : <NotHiring />}
+        {this.state.loading ? (
+          "loading ..."
+        ) : (
+          <div>
+            {this.state.data.map(product => {
+              return (
+                <div>
+                  <h3>Library Product of the Week!</h3>
+                  <h4>{product.name}</h4>
+                  <img src={product.image} height={100} />
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     );
   }
