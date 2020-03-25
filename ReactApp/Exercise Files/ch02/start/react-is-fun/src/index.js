@@ -38,19 +38,18 @@ class Library extends Component {
       freeBookMark: false,
       hiring: false,
       data: [],
-      loading: false
+      loading: true
     };
 
     this.toggleOpenClosed = this.toggleOpenClosed.bind(this);
   }
 
   componentDidMount() {
-    // console.log("the component is now mounted!")
-    const { data } = this.state;
-    this.setState({ loading: true });
-    fetch("http://hplussport.com/api/products/order/price/sort/asc/qty/1")
+
+    // this.setState({ loading: true });
+    fetch('http://hplussport.com/api/products/order/price/sort/asc/qty/2')
       .then(data => data.json())
-      .then(data.setstate({ data, loading: false }));
+      .then(data => this.setstate({ data, loading: false }));
   }
 
   componentDidUpdate() {
