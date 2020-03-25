@@ -45,11 +45,11 @@ class Library extends Component {
   }
 
   componentDidMount() {
-
-    // this.setState({ loading: true });
-    fetch('http://hplussport.com/api/products/order/price/sort/asc/qty/2')
+    this.setState({ loading: true });
+    fetch('https://hplussport.com/api/products/order/price/sort/asc/qty/1')
       .then(data => data.json())
       .then(data => this.setstate({ data, loading: false }));
+      
   }
 
   componentDidUpdate() {
@@ -64,7 +64,7 @@ class Library extends Component {
   }
 
   render() {
-    console.log(this.state);
+    console.log(this.state.data);
     // const books = this.props.books; Or the easier way =>
     const { books } = this.props;
     return (
